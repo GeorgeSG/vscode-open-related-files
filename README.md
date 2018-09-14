@@ -12,7 +12,7 @@ Use the command `Open Related Files` or the default shortcut cmd+shift+r. This w
 
 ### Custom shortcuts
 
-If you want to define your own custom shorctuts for specific extensions, use the command `extension.openRelatedFilesWithExtension`
+If you want to define your own custom shorctuts for specific extensions, use the command `openRelatedFiles.withExtension`
 
 Example:
 ```
