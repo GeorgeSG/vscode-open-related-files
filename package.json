@@ -18,20 +18,20 @@
   ],
   "activationEvents": [
     "*",
-    "onCommand:extension.openRelatedFiles"
+    "onCommand:openRelatedFiles.open"
   ],
   "main": "./out/extension",
   "contributes": {
     "commands": [
       {
-        "command": "extension.openRelatedFiles",
+        "command": "openRelatedFiles.open",
         "title": "Open Related Files"
       }
     ],
     "keybindings": [
       {
         "key": "cmd+shift+r",
-        "command": "extension.openRelatedFiles"
+        "command": "openRelatedFiles.open"
       }
     ],
     "configuration": [

@@ -6,7 +6,7 @@ import { RelatedFiles } from './relatedFiles';
 import { ExtensionSettings } from './settings';
 
 export function activate(context: vscode.ExtensionContext) {
-  let openRelatedFiles = vscode.commands.registerCommand('extension.openRelatedFiles', async () => {
+  let openRelatedFiles = vscode.commands.registerCommand('openRelatedFiles.open', async () => {
     if (vscode.window && vscode.window.activeTextEditor) {
       const filePath = vscode.window.activeTextEditor.document.fileName;
 
@@ -43,7 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
   });
 
   let openRelatedFilesWithExtension = vscode.commands.registerCommand(
-    'extension.openRelatedFilesWithExtension',
+    'openRelatedFiles.withExtension',
     async (withExtension: string) => {
       if (vscode.window && vscode.window.activeTextEditor) {
         const filePath = vscode.window.activeTextEditor.document.fileName;
