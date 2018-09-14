@@ -1,6 +1,6 @@
 {
-  "name": "open-related-file",
-  "displayName": "Open Related File",
+  "name": "open-related-files",
+  "displayName": "Open Related Files",
   "description": "Quickly open a file from the same folder with the same name and a different extension",
   "version": "0.0.1",
   "publisher": "georgesg",
@@ -16,26 +16,22 @@
   "categories": [
     "Other"
   ],
-  "keywords": [
-    "related-files",
-    "open-related-files",
-  ],
   "activationEvents": [
     "*",
-    "onCommand:extension.openRelatedFile"
+    "onCommand:extension.openRelatedFiles"
   ],
   "main": "./out/extension",
   "contributes": {
     "commands": [
       {
-        "command": "extension.openRelatedFile",
-        "title": "Open Related File"
+        "command": "extension.openRelatedFiles",
+        "title": "Open Related Files"
       }
     ],
     "keybindings": [
       {
         "key": "cmd+shift+r",
-        "command": "extension.openRelatedFile"
+        "command": "extension.openRelatedFiles"
       }
     ],
     "configuration": [

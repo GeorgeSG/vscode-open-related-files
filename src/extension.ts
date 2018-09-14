@@ -5,7 +5,7 @@ import { RelatedFiles } from './relatedFiles';
 import { ExtensionSettings } from './settings';
 
 export function activate(context: vscode.ExtensionContext) {
-  let disposable = vscode.commands.registerCommand('extension.openRelatedFile', async () => {
+  let disposable = vscode.commands.registerCommand('extension.openRelatedFiles', async () => {
     if (vscode.window && vscode.window.activeTextEditor) {
       const filePath = vscode.window.activeTextEditor.document.fileName;
 
