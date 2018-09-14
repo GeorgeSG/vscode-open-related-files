@@ -16,6 +16,10 @@
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "related-files",
+    "open-related-files",
+  ],
   "activationEvents": [
     "*",
     "onCommand:extension.openRelatedFile"
