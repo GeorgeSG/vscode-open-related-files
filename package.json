@@ -2,7 +2,7 @@
   "name": "open-related-files",
   "displayName": "Open Related Files",
   "description": "Quickly navigate files that are in the same folder and have the same name as the file you have currently opened.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "georgesg",
   "author": {
     "name": "Georgi Gardev",
@@ -82,15 +82,15 @@
   },
   "badges": [
     {
-      "url": "http://vsmarketplacebadge.apphb.com/version-short/georgesg.open-related-files.svg",
+      "url": "https://vsmarketplacebadge.apphb.com/version-short/georgesg.open-related-files.svg",
       "description": "Latest Version",
       "href": "https://marketplace.visualstudio.com/items?itemName=georgesg.open-related-files"
     },
     {
-      "url": "http://vsmarketplacebadge.apphb.com/installs-short/georgesg.open-related-files.svg",
+      "url": "https://vsmarketplacebadge.apphb.com/installs-short/georgesg.open-related-files.svg",
       "description": "Installs",
       "href": "https://marketplace.visualstudio.com/items?itemName=georgesg.open-related-files"
-    },
+    }
   ]
 }
 
