@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
         placeHolder: 'Choose related file to open'
       });
 
-      if (!chosenExtension) {
+      if (chosenExtension === undefined) {
         return;
       }
 

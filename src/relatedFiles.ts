@@ -40,7 +40,11 @@ class RelatedFiles {
   }
 
   getRelatedFile(extension: string): string {
-    return `${this.folder}/${this.fileName}.${extension}`;
+    if (extension) {
+      return `${this.folder}/${this.fileName}.${extension}`;
+    } else {
+      return `${this.folder}/${this.fileName}`;
+    }
   }
 }
 
