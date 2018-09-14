@@ -1,24 +1,49 @@
 {
   "name": "open-related-file",
   "displayName": "Open Related File",
-  "description": "Quickly open a file with the same name and a different extension",
+  "description": "Quickly open a file from the same folder with the same name and a different extension",
   "version": "0.0.1",
   "publisher": "georgesg",
+  "author": {
+    "name": "Georgi Gardev",
+    "url": "http://gardev.com",
+    "email": "georgi@gardev.com"
+  },
+  "license": "SEE LICENSE IN LICENSE",
   "engines": {
-    "vscode": "^1.20.0"
+    "vscode": "^1.8.0"
   },
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.sayHello"
+    "*",
+    "onCommand:extension.openRelatedFile"
   ],
   "main": "./out/extension",
   "contributes": {
     "commands": [
       {
-        "command": "extension.sayHello",
-        "title": "Hello World"
+        "command": "extension.openRelatedFile",
+        "title": "Open Related File"
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "cmd+shift+r",
+        "command": "extension.openRelatedFile"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "Open Related Files Configuration Settings",
+        "properties": {
+          "openRelatedFiles.limitToExtensions": {
+            "type": "array",
+            "default": [],
+            "description": "Only look for files with the specified extensions"
+          }
+        }
       }
     ]
   },
@@ -26,22 +51,17 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
+    "lint": "tslint",
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "standard && npm run compile && node ./node_modules/vscode/bin/test",
-    "standard": "standard"
-  },
-  "standard": {
-    "parser": "typescript-eslint-parser",
-    "plugins": [ "typescript" ]
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.42",
     "@types/node": "^8.10.25",
     "eslint-plugin-typescript": "^0.12.0",
-    "standard": "^12.0.1",
-    "tslint": "^5.8.0",
-    "typescript": "^2.6.1",
-    "typescript-eslint-parser": "^18.0.0",
+    "typescript": "3.0.1",
     "vscode": "^1.1.21"
-  }
+  },
+  "dependencies": {}
 }
+
