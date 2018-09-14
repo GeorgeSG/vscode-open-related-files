@@ -79,6 +79,18 @@
   },
   "bugs": {
     "url": "https://github.com/GeorgeSG/vscode-open-related-files/issues"
-  }
+  },
+  "badges": [
+    {
+      "url": "http://vsmarketplacebadge.apphb.com/version-short/georgesg.open-related-files.svg",
+      "description": "Latest Version",
+      "href": "https://marketplace.visualstudio.com/items?itemName=georgesg.open-related-files"
+    },
+    {
+      "url": "http://vsmarketplacebadge.apphb.com/installs-short/georgesg.open-related-files.svg",
+      "description": "Installs",
+      "href": "https://marketplace.visualstudio.com/items?itemName=georgesg.open-related-files"
+    },
+  ]
 }
 
