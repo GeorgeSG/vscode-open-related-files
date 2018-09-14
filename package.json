@@ -1,7 +1,7 @@
 {
   "name": "open-related-files",
   "displayName": "Open Related Files",
-  "description": "Quickly open a file from the same folder with the same name and a different extension",
+  "description": "Quickly navigate files that are in the same folder and have the same name as the file you have currently opened.",
   "version": "0.0.1",
   "publisher": "georgesg",
   "author": {
