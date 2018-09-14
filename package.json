@@ -2,7 +2,7 @@
   "name": "open-related-files",
   "displayName": "Open Related Files",
   "description": "Quickly navigate files that are in the same folder and have the same name as the file you have currently opened.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "georgesg",
   "author": {
     "name": "Georgi Gardev",
