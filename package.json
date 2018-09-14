@@ -16,6 +16,11 @@
   "categories": [
     "Other"
   ],
+  "icon": "images/logo/logo.png",
+  "galleryBanner": {
+    "color": "#090a57",
+    "theme": "light"
+  },
   "activationEvents": [
     "*",
     "onCommand:openRelatedFiles.open"
