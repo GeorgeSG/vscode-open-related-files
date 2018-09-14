@@ -19,7 +19,7 @@
   "icon": "images/logo/logo.png",
   "galleryBanner": {
     "color": "#090a57",
-    "theme": "light"
+    "theme": "dark"
   },
   "activationEvents": [
     "*",
