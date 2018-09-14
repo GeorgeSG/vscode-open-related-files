@@ -9,6 +9,11 @@
     "url": "http://gardev.com",
     "email": "georgi@gardev.com"
   },
+  "keywords": [
+    "open-related-files",
+    "related-files",
+    "related files"
+  ],
   "license": "SEE LICENSE IN LICENSE",
   "engines": {
     "vscode": "^1.8.0"
