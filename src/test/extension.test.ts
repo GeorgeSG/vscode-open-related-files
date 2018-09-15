@@ -1,8 +1,23 @@
 import * as assert from 'assert';
+import * as vscode from 'vscode';
 
-suite('Extension Tests', () => {
-  test('Something 1', () => {
-    assert.equal(-1, [1, 2, 3].indexOf(5));
-    assert.equal(-1, [1, 2, 3].indexOf(0));
+suite('vscode-open-related-files extension tests', () => {
+  test('Extension should be active after startup', done => {
+    setTimeout(() => {
+      const extension = vscode.extensions.getExtension('georgesg.open-related-files');
+      assert.ok(extension);
+      assert.equal(extension!.isActive, true);
+      done();
+    }, 1000 * 3);
+  }).timeout(1000 * 10);
+
+  test('registers commands', done => {
+    vscode.commands
+      .getCommands(true)
+      .then(commands => commands.filter(command => command.startsWith('openRelatedFiles')))
+      .then(commands => {
+        assert.equal(commands.length > 0, true);
+      })
+      .then(() => done());
   });
 });
