@@ -73,7 +73,7 @@ class RelatedFiles {
       const document = await vscode.workspace.openTextDocument(filePath);
       vscode.window.showTextDocument(document);
     } else {
-      vscode.window.showInformationMessage("File doesn't exist.");
+      vscode.window.showInformationMessage('Open Related Files: File doesn\'t exist.');
     }
   }
 }

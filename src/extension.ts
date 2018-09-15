@@ -6,7 +6,7 @@ import { ExtensionSettings } from './settings';
 export function activate(context: vscode.ExtensionContext) {
   let openRelatedFiles = vscode.commands.registerCommand('openRelatedFiles.open', async () => {
     if (!vscode.window.activeTextEditor) {
-      vscode.window.showInformationMessage('You have to open a file first');
+      vscode.window.showInformationMessage('Open Related Files: You have to open a file first');
       return;
     }
 
@@ -17,7 +17,7 @@ export function activate(context: vscode.ExtensionContext) {
     const extensions = relatedFiles.extensions;
 
     if (extensions.length === 0) {
-      vscode.window.showInformationMessage('There are no files to choose from.');
+      vscode.window.showInformationMessage('Open Related Files: There are no files to choose from.');
       return;
     }
 
@@ -41,7 +41,7 @@ export function activate(context: vscode.ExtensionContext) {
     'openRelatedFiles.withExtension',
     async (chosenExtension: string) => {
       if (!vscode.window.activeTextEditor) {
-        vscode.window.showInformationMessage('You have to open a file first');
+        vscode.window.showInformationMessage('Open Related Files: You have to open a file first');
         return;
       }
 
