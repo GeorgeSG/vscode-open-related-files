@@ -1,0 +1,19 @@
+language: node_js
+branches:
+  only:
+    - master
+cache:
+  directories:
+  - node_modules
+
+git:
+  depth: false
+  quite: true
+
+install:
+  - yarn
+  - yarn vscode:prepublish
+before_script:
+  - yarn lint
+script:
+  - yarn test
