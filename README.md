@@ -1,8 +1,7 @@
 # Open Related Files
 ![](https://github.com/GeorgeSG/vscode-open-related-files/blob/master/images/logo/facebook_cover_photo_2.png)
 [![Version](https://vsmarketplacebadge.apphb.com/version-short/georgesg.open-related-files.svg)](https://marketplace.visualstudio.com/items?itemName=georgesg.open-related-files)
-[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/georgesg.open-related-files.svg)]
-((https://marketplace.visualstudio.com/items?itemName=georgesg.open-related-files))
+[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/georgesg.open-related-files.svg)](https://marketplace.visualstudio.com/items?itemName=georgesg.open-related-files)
 
 Open Related Files is a VS Code extension that allows you to quickly navigate files that are in the same folder and have the same name as the file you have currently opened.
 
