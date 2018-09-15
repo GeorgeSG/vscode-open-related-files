@@ -15,11 +15,11 @@ class ExtensionSettings {
     return this.limitToExtensions.length > 0;
   }
 
-  get limitToExtensions(): Array<string> {
+  get limitToExtensions(): string[] {
     return this.configuration.get(ExtensionSettings.CONFIG_EXTENSIONS_KEY) || [];
   }
 
-  shouldShowExtension(extension: string): boolean {
+  public shouldShowExtension(extension: string): boolean {
     return this.hasLimitToExtensions && this.limitToExtensions.indexOf(extension) > -1;
   }
 

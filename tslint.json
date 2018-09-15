@@ -1,12 +1,12 @@
 {
   "extends": [
-    "tslint:recommended",
-    "tslint-plugin-prettier"
+    "tslint:latest",
+    "tslint-plugin-prettier",
+    "tslint-config-prettier"
   ],
   "rules": {
-    "prefer-for-of": false,
-    "prettier": [
-      true
-    ]
+    "prettier": true,
+    "no-submodule-imports": false,
+    "no-implicit-dependencies": false
   }
 }

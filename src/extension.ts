@@ -4,7 +4,7 @@ import { RelatedFiles } from './relatedFiles';
 import { ExtensionSettings } from './settings';
 
 export function activate(context: vscode.ExtensionContext) {
-  let openRelatedFiles = vscode.commands.registerCommand('openRelatedFiles.open', async () => {
+  const openRelatedFiles = vscode.commands.registerCommand('openRelatedFiles.open', async () => {
     if (!vscode.window.activeTextEditor) {
       vscode.window.showInformationMessage('Open Related Files: You have to open a file first');
       return;
@@ -17,7 +17,9 @@ export function activate(context: vscode.ExtensionContext) {
     const extensions = relatedFiles.extensions;
 
     if (extensions.length === 0) {
-      vscode.window.showInformationMessage('Open Related Files: There are no files to choose from.');
+      vscode.window.showInformationMessage(
+        'Open Related Files: There are no files to choose from.'
+      );
       return;
     }
 
@@ -37,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
     await relatedFiles.openWithExtension(chosenExtension);
   });
 
-  let openRelatedFilesWithExtension = vscode.commands.registerCommand(
+  const openRelatedFilesWithExtension = vscode.commands.registerCommand(
     'openRelatedFiles.withExtension',
     async (chosenExtension: string) => {
       if (!vscode.window.activeTextEditor) {
@@ -47,12 +49,9 @@ export function activate(context: vscode.ExtensionContext) {
 
       const filePath = vscode.window.activeTextEditor.document.fileName;
       const relatedFiles = new RelatedFiles(filePath, new ExtensionSettings());
-      await relatedFiles.openWithExtension(chosenExtension)
+      await relatedFiles.openWithExtension(chosenExtension);
     }
   );
-
   context.subscriptions.push(openRelatedFiles);
   context.subscriptions.push(openRelatedFilesWithExtension);
 }
-
-export function deactivate() { }

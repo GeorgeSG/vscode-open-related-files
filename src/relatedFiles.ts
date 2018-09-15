@@ -1,8 +1,8 @@
-import * as path from 'path';
 import * as fs from 'fs';
+import * as path from 'path';
 import * as vscode from 'vscode';
-
 import * as util from './util';
+
 import { ExtensionSettings } from './settings';
 
 class RelatedFiles {
@@ -25,23 +25,30 @@ class RelatedFiles {
   /**
    * Returns a list of all available extensions from the current directory.
    */
-  get allExtensions(): Array<string> {
+  get allExtensions(): string[] {
     return fs
       .readdirSync(this.dir)
-      .filter((fileName) => {
-        return fs.lstatSync(`${this.dir}/${fileName}`).isFile() &&
+      .filter(fileName => {
+        return (
+          fs.lstatSync(`${this.dir}/${fileName}`).isFile() &&
           util.getOnlyName(fileName) === this.name &&
-          fileName !== `${this.name}${this.ext}`;
+          fileName !== `${this.name}${this.ext}`
+        );
       })
-      .map((fileName) => fileName.split('.').splice(1).join('.'));
+      .map(fileName =>
+        fileName
+          .split('.')
+          .splice(1)
+          .join('.')
+      );
   }
 
   /**
    * Returns a list of all possible extensions to open. Takes 'limitToExtensions' into account.
    */
-  get extensions(): Array<string> {
+  get extensions(): string[] {
     if (this.settings.hasLimitToExtensions) {
-      return this.allExtensions.filter((extension) => this.settings.shouldShowExtension(extension));
+      return this.allExtensions.filter(extension => this.settings.shouldShowExtension(extension));
     } else {
       return this.allExtensions;
     }
@@ -50,7 +57,7 @@ class RelatedFiles {
   /**
    * Returns the full path to a related file by a given extension.
    */
-  getRelatedFilePath(extension: string): string {
+  public getRelatedFilePath(extension: string): string {
     if (extension) {
       return `${this.dir}/${this.name}.${extension}`;
     } else {
@@ -61,19 +68,19 @@ class RelatedFiles {
   /**
    * Opens a related file in the active workspace by a given extension.
    */
-  async openWithExtension(extension: string): Promise<void> {
+  public async openWithExtension(extension: string): Promise<void> {
     await this.open(this.getRelatedFilePath(extension));
   }
 
   /**
    * Opens a related file in the active workspace by a given file path.
    */
-  async open(filePath: string): Promise<void> {
+  public async open(filePath: string): Promise<void> {
     if (fs.existsSync(filePath) && fs.lstatSync(filePath).isFile()) {
       const document = await vscode.workspace.openTextDocument(filePath);
       vscode.window.showTextDocument(document);
     } else {
-      vscode.window.showInformationMessage('Open Related Files: File doesn\'t exist.');
+      vscode.window.showInformationMessage("Open Related Files: File doesn't exist.");
     }
   }
 }

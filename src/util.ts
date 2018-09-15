@@ -9,10 +9,13 @@ import * as path from 'path';
  */
 export function getFullExtension(filePath) {
   const parsedPath = path.parse(filePath);
-  let { name, ext } = parsedPath;
+  const { name, ext } = parsedPath;
 
   if (name.indexOf('.') > -1) {
-    return `.${name.split('.').slice(1).join('.')}${ext}`;
+    return `.${name
+      .split('.')
+      .slice(1)
+      .join('.')}${ext}`;
   } else {
     return ext;
   }
