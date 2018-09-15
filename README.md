@@ -47,3 +47,9 @@ This extension contributes the following settings:
   - Default: `[]`
 
 Only look for this specific list of extensions, ignore all other files. Will be ignored if array is empty.
+
+**`openRelatedFiles.openSingleFile`**:
+  - Type: `boolean`
+  - Default: `true`
+
+If there is only one related file, open it without prompt.

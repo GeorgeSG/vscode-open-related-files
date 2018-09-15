@@ -52,6 +52,11 @@
             "type": "array",
             "default": [],
             "description": "Only look for files with the specified extensions"
+          },
+          "openRelatedFiles.openSingleFile": {
+            "type": "boolean",
+            "default": true,
+            "description": "If there is only one related file, open it without prompt."
           }
         }
       }

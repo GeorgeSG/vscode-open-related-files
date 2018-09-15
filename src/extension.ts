@@ -1,64 +1,53 @@
-'use strict';
 import * as vscode from 'vscode';
-import * as fs from 'fs';
 
 import { RelatedFiles } from './relatedFiles';
 import { ExtensionSettings } from './settings';
 
 export function activate(context: vscode.ExtensionContext) {
   let openRelatedFiles = vscode.commands.registerCommand('openRelatedFiles.open', async () => {
-    if (vscode.window && vscode.window.activeTextEditor) {
-      const filePath = vscode.window.activeTextEditor.document.fileName;
-
-      const settings = new ExtensionSettings();
-      const relatedFiles = new RelatedFiles(filePath);
-
-      let extensions;
-
-      if (settings.hasLimitToExtensions) {
-        extensions = relatedFiles.extensions.filter((extension) => settings.shouldShowExtension(extension));
-      } else {
-        extensions = relatedFiles.extensions;
-      }
-
-      if (extensions.length === 0) {
-        vscode.window.showInformationMessage('There are no files to choose from.');
-        return;
-      }
-
-      const chosenExtension = await vscode.window.showQuickPick(extensions, {
-        placeHolder: 'Choose related file to open'
-      });
-
-      if (chosenExtension === undefined) {
-        return;
-      }
-
-      const fileToOpen = relatedFiles.getRelatedFile(chosenExtension);
-      const document = await vscode.workspace.openTextDocument(fileToOpen);
-      vscode.window.showTextDocument(document);
-    } else {
+    if (!vscode.window.activeTextEditor) {
       vscode.window.showInformationMessage('You have to open a file first');
+      return;
     }
+
+    const filePath = vscode.window.activeTextEditor.document.fileName;
+
+    const settings = new ExtensionSettings();
+    const relatedFiles = new RelatedFiles(filePath, settings);
+    const extensions = relatedFiles.extensions;
+
+    if (extensions.length === 0) {
+      vscode.window.showInformationMessage('There are no files to choose from.');
+      return;
+    }
+
+    if (extensions.length === 1 && settings.openSingleFile) {
+      await relatedFiles.openWithExtension(extensions[0]);
+      return;
+    }
+
+    const chosenExtension = await vscode.window.showQuickPick(extensions, {
+      placeHolder: 'Choose related file to open'
+    });
+
+    if (chosenExtension === undefined) {
+      return;
+    }
+
+    await relatedFiles.openWithExtension(chosenExtension);
   });
 
   let openRelatedFilesWithExtension = vscode.commands.registerCommand(
     'openRelatedFiles.withExtension',
-    async (withExtension: string) => {
-      if (vscode.window && vscode.window.activeTextEditor) {
-        const filePath = vscode.window.activeTextEditor.document.fileName;
-        const relatedFiles = new RelatedFiles(filePath);
-
-        const fileToOpen = relatedFiles.getRelatedFile(withExtension);
-        if (fs.existsSync(fileToOpen)) {
-          const document = await vscode.workspace.openTextDocument(fileToOpen);
-          vscode.window.showTextDocument(document);
-        } else {
-          vscode.window.showInformationMessage("File doesn't exist.");
-        }
-      } else {
+    async (chosenExtension: string) => {
+      if (!vscode.window.activeTextEditor) {
         vscode.window.showInformationMessage('You have to open a file first');
+        return;
       }
+
+      const filePath = vscode.window.activeTextEditor.document.fileName;
+      const relatedFiles = new RelatedFiles(filePath, new ExtensionSettings());
+      await relatedFiles.openWithExtension(chosenExtension)
     }
   );
 
@@ -66,4 +55,4 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(openRelatedFilesWithExtension);
 }
 
-export function deactivate() {}
+export function deactivate() { }

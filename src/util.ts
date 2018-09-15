@@ -12,10 +12,7 @@ export function getFullExtension(filePath) {
   let { name, ext } = parsedPath;
 
   if (name.indexOf('.') > -1) {
-    return `.${name
-      .split('.')
-      .slice(1)
-      .join('.')}${ext}`;
+    return `.${name.split('.').slice(1).join('.')}${ext}`;
   } else {
     return ext;
   }
