@@ -2,6 +2,9 @@ language: node_js
 node_js:
   - '8'
 
+os:
+ - osx
+
 branches:
   only:
     - master
@@ -16,8 +19,5 @@ git:
 
 install:
   - yarn
-  - yarn vscode:prepublish
-before_script:
-  - yarn lint
 script:
-  - yarn test
+  - yarn ci
