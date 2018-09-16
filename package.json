@@ -105,6 +105,11 @@
       "url": "https://vsmarketplacebadge.apphb.com/installs-short/georgesg.open-related-files.svg",
       "description": "Installs",
       "href": "https://marketplace.visualstudio.com/items?itemName=georgesg.open-related-files"
+    },
+    {
+      "url": "https://travis-ci.org/GeorgeSG/vscode-open-related-files.svg?branch=master",
+      "desription": "Build Status",
+      "href": "https://travis-ci.org/GeorgeSG/vscode-open-related-files"
     }
   ]
 }
