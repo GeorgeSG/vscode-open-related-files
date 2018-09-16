@@ -20,7 +20,7 @@ class ExtensionSettings {
   }
 
   public shouldShowExtension(extension: string): boolean {
-    return this.hasLimitToExtensions && this.limitToExtensions.indexOf(extension) > -1;
+    return this.hasLimitToExtensions === false || this.limitToExtensions.indexOf(extension) > -1;
   }
 
   get openSingleFile(): boolean {

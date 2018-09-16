@@ -7,7 +7,7 @@ import * as path from 'path';
  * Output ".ext1.ext2"
  * @param filePath
  */
-export function getFullExtension(filePath) {
+export function getFullExtension(filePath: string): string {
   const parsedPath = path.parse(filePath);
   const { name, ext } = parsedPath;
 
@@ -26,6 +26,6 @@ export function getFullExtension(filePath) {
  * Output: "filename"
  * @param name
  */
-export function getOnlyName(name) {
+export function getOnlyName(name: string): string {
   return name.indexOf('.') > -1 ? name.split('.')[0] : name;
 }

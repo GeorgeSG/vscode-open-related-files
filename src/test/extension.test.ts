@@ -1,8 +1,8 @@
 import * as assert from 'assert';
 import * as vscode from 'vscode';
 
-suite('vscode-open-related-files extension tests', () => {
-  test('Extension should be active after startup', done => {
+describe('vscode-open-related-files', () => {
+  it('is active after startup', done => {
     setTimeout(() => {
       const extension = vscode.extensions.getExtension('georgesg.open-related-files');
       assert.ok(extension);
@@ -11,7 +11,7 @@ suite('vscode-open-related-files extension tests', () => {
     }, 1000 * 3);
   }).timeout(1000 * 10);
 
-  test('registers commands', done => {
+  it('registers commands', done => {
     vscode.commands
       .getCommands(true)
       .then(commands => commands.filter(command => command.startsWith('openRelatedFiles')))
