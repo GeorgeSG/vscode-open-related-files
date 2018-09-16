@@ -12,6 +12,7 @@ branches:
 cache:
   directories:
   - node_modules
+  - .vscode-test
 
 git:
   depth: false
