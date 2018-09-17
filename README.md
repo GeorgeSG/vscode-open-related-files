@@ -23,9 +23,10 @@ Use the command `Create Related File` to create a new file next to the currently
 ### Custom shortcuts
 
 **`openRelatedFiles.open`**
-  - opens the QuickPick list.
-  - default: `cmd+shift+r`.
+  - Opens the QuickPick list.
+  - Default: `cmd+shift+r`.
 
+Example / Default:
 ```
 {
   "key": "cmd+shift+r",
@@ -34,8 +35,11 @@ Use the command `Create Related File` to create a new file next to the currently
 ```
 
 **`openRelatedFiles.withExtension`**
-  - define your own custom shorctuts for a specific extension.
-  - directly opens the related file with the specified extension if such file exists.
+  - Define your own custom shorctuts for a specific extension.
+  - Directly opens the related file with the specified extension if such file exists.
+  - No default shortcut provided.
+
+Example:
 ```
 {
   "key": "alt+cmd+c",
@@ -43,6 +47,10 @@ Use the command `Create Related File` to create a new file next to the currently
    "args": "css"
 }
 ```
+
+**`openRelatedFiles.create`**
+  - Execute the 'Create Related File' command.
+  - No default shortcut provided.
 
 ## Extension Settings
 
