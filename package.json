@@ -67,10 +67,10 @@
     "watch": "tsc -watch -p ./",
     "lint": "tslint --project ./tsconfig.json",
     "format": "prettier --write \"**/*.ts\"",
-    "test": "npm run compile && node ./node_modules/vscode/bin/test",
-    "ci": "npm run lint && npm run test",
+    "test": "yarn compile && node ./node_modules/vscode/bin/test",
+    "ci": "yarn lint && yarn test",
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "vscode:prepublish": "npm run lint && npm run test"
+    "vscode:prepublish": "yarn lint && yarn test && yarn version && git push --set-upstream origin master --follow-tags"
   },
   "devDependencies": {
     "@types/chai": "^4.1.4",
