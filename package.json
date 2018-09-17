@@ -113,7 +113,7 @@
     },
     {
       "url": "https://api.travis-ci.org/GeorgeSG/vscode-open-related-files.svg?branch=master",
-      "desription": "Build Status",
+      "description": "Build Status",
       "href": "https://travis-ci.org/GeorgeSG/vscode-open-related-files"
     }
   ]
