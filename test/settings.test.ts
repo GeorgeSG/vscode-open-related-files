@@ -13,7 +13,7 @@ describe('Settings', () => {
     has(_: string): boolean {
       return true;
     },
-    inspect() {
+    inspect(): undefined {
       return undefined;
     },
     update(_: string, value: any, __?: boolean): Thenable<void> {

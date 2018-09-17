@@ -8,6 +8,7 @@
     "prettier": true,
     "no-submodule-imports": false,
     "no-implicit-dependencies": false,
-    "no-unused-expression": false
+    "no-unused-expression": false,
+    "typedef": [true, "call-signature", "member-variable-declaration"]
   }
 }

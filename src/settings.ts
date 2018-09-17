@@ -5,7 +5,7 @@ class Settings {
   private static readonly CONFIG_EXTENSIONS_KEY: string = 'limitToExtensions';
   private static readonly CONFIG_OPEN_SINGLE_FILE: string = 'openSingleFile';
 
-  private configuration: any;
+  private configuration: vscode.WorkspaceConfiguration;
 
   constructor() {
     this.configuration = vscode.workspace.getConfiguration(Settings.CONFIG_KEY);

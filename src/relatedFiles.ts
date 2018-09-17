@@ -77,7 +77,7 @@ class RelatedFiles {
   /**
    * Creates a new file next to the currently opened file with the selected extension.
    */
-  public async create(extension: string) {
+  public async create(extension: string): Promise<void> {
     const newFilePath = this.getRelatedFilePath(extension);
 
     if (fs.existsSync(newFilePath) && fs.lstatSync(newFilePath).isFile()) {
@@ -88,7 +88,7 @@ class RelatedFiles {
     }
 
     fs.appendFileSync(newFilePath, '');
-    this.open(newFilePath);
+    await this.open(newFilePath);
   }
 
   /**
