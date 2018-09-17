@@ -3,16 +3,16 @@ import * as path from 'path';
 import * as vscode from 'vscode';
 import * as util from './util';
 
-import { ExtensionSettings } from './settings';
+import { Settings } from './settings';
 
 class RelatedFiles {
-  private settings: ExtensionSettings;
+  private settings: Settings;
 
   private dir: string;
   private name: string;
   private ext: string;
 
-  constructor(filePath: string, settings: ExtensionSettings) {
+  constructor(filePath: string, settings: Settings) {
     this.settings = settings;
 
     const parsedPath = path.parse(filePath);

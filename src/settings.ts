@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-class ExtensionSettings {
+class Settings {
   private static readonly CONFIG_KEY: string = 'openRelatedFiles';
   private static readonly CONFIG_EXTENSIONS_KEY: string = 'limitToExtensions';
   private static readonly CONFIG_OPEN_SINGLE_FILE: string = 'openSingleFile';
@@ -8,7 +8,7 @@ class ExtensionSettings {
   private configuration: any;
 
   constructor() {
-    this.configuration = vscode.workspace.getConfiguration(ExtensionSettings.CONFIG_KEY);
+    this.configuration = vscode.workspace.getConfiguration(Settings.CONFIG_KEY);
   }
 
   get hasLimitToExtensions(): boolean {
@@ -16,7 +16,7 @@ class ExtensionSettings {
   }
 
   get limitToExtensions(): string[] {
-    return this.configuration.get(ExtensionSettings.CONFIG_EXTENSIONS_KEY) || [];
+    return this.configuration.get(Settings.CONFIG_EXTENSIONS_KEY) || [];
   }
 
   public shouldShowExtension(extension: string): boolean {
@@ -24,8 +24,8 @@ class ExtensionSettings {
   }
 
   get openSingleFile(): boolean {
-    return this.configuration.get(ExtensionSettings.CONFIG_OPEN_SINGLE_FILE);
+    return this.configuration.get(Settings.CONFIG_OPEN_SINGLE_FILE);
   }
 }
 
-export { ExtensionSettings };
+export { Settings };

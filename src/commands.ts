@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 import { RelatedFiles } from './relatedFiles';
-import { ExtensionSettings } from './settings';
+import { Settings } from './settings';
 
 class Commands {
   public static readonly OPEN_RELATED_FILES_KEY: string = 'openRelatedFiles.open';
@@ -16,7 +16,7 @@ class Commands {
 
     const filePath = vscode.window.activeTextEditor.document.fileName;
 
-    const settings = new ExtensionSettings();
+    const settings = new Settings();
     const relatedFiles = new RelatedFiles(filePath, settings);
     const extensions = relatedFiles.extensions;
 
@@ -50,7 +50,7 @@ class Commands {
     }
 
     const filePath = vscode.window.activeTextEditor.document.fileName;
-    const relatedFiles = new RelatedFiles(filePath, new ExtensionSettings());
+    const relatedFiles = new RelatedFiles(filePath, new Settings());
     await relatedFiles.openWithExtension(chosenExtension);
   }
 }

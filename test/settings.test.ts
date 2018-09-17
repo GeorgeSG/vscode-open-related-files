@@ -2,10 +2,10 @@ import { expect } from 'chai';
 import * as sinon from 'sinon';
 import * as vscode from 'vscode';
 
-import { ExtensionSettings } from '../src/settings';
+import { Settings } from '../src/settings';
 
-describe('ExtensionSettings', () => {
-  let settings: ExtensionSettings;
+describe('Settings', () => {
+  let settings: Settings;
   const workspaceConfiguration: vscode.WorkspaceConfiguration = {
     get(key: string): any {
       return key;
@@ -26,7 +26,7 @@ describe('ExtensionSettings', () => {
 
   beforeEach(() => {
     configStub = sinon.stub(vscode.workspace, 'getConfiguration').returns(workspaceConfiguration);
-    settings = new ExtensionSettings();
+    settings = new Settings();
   });
 
   afterEach(() => {
