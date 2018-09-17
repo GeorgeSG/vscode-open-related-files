@@ -1,22 +1,18 @@
 language: node_js
-node_js:
-  - '8'
-
-os:
- - osx
+node_js: '8'
+os: 'osx'
 
 branches:
-  only:
-    - master
+  only: 'master'
 
 cache:
   directories:
-  - node_modules
-  - .vscode-test
+    - node_modules
+    - .vscode-test
 
 git:
   depth: false
-  quite: true
+  quiet: true
 
 install:
   - yarn
