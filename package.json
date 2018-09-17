@@ -112,7 +112,7 @@
       "href": "https://marketplace.visualstudio.com/items?itemName=georgesg.open-related-files"
     },
     {
-      "url": "https://travis-ci.org/GeorgeSG/vscode-open-related-files.svg?branch=master",
+      "url": "https://api.travis-ci.org/GeorgeSG/vscode-open-related-files.svg?branch=master",
       "desription": "Build Status",
       "href": "https://travis-ci.org/GeorgeSG/vscode-open-related-files"
     }
