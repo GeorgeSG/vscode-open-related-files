@@ -1,7 +1,7 @@
 import * as assert from 'assert';
 import * as vscode from 'vscode';
 
-describe('vscode-open-related-files', () => {
+describe('Open Related Files', () => {
   it('is active after startup', done => {
     setTimeout(() => {
       const extension = vscode.extensions.getExtension('georgesg.open-related-files');
