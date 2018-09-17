@@ -12,12 +12,14 @@ describe('Open Related Files', () => {
   }).timeout(1000 * 10);
 
   it('registers commands', done => {
-    vscode.commands
-      .getCommands(true)
-      .then(commands => commands.filter(command => command.startsWith('openRelatedFiles')))
-      .then(commands => {
-        assert.equal(commands.length > 0, true);
-      })
-      .then(() => done());
-  });
+    setTimeout(() => {
+      vscode.commands
+        .getCommands(true)
+        .then(commands => commands.filter(command => command.startsWith('openRelatedFiles')))
+        .then(commands => {
+          assert.equal(commands.length > 0, true);
+        })
+        .then(() => done());
+    }, 1000 * 3);
+  }).timeout(1000 * 10);
 });
