@@ -7,10 +7,11 @@ class Commands {
   public static readonly OPEN_RELATED_FILES_KEY: string = 'openRelatedFiles.open';
   public static readonly OPEN_RELATED_FILES_WITH_EXTENSION_KEY: string =
     'openRelatedFiles.withExtension';
+  public static readonly OPEN_RELATED_FILES_CREATE_KEY: string = 'openRelatedFiles.create';
 
   public static async openRelatedFiles(): Promise<void> {
     if (!vscode.window.activeTextEditor) {
-      vscode.window.showInformationMessage('Open Related Files: You have to open a file first');
+      vscode.window.showInformationMessage('Open Related Files: You have to open a file first.');
       return;
     }
 
@@ -43,15 +44,34 @@ class Commands {
     await relatedFiles.openWithExtension(chosenExtension);
   }
 
-  public static async openRelatedFilesWithExtension(chosenExtension: string) {
+  public static async openRelatedFilesWithExtension(chosenExtension: string): Promise<void> {
     if (!vscode.window.activeTextEditor) {
-      vscode.window.showInformationMessage('Open Related Files: You have to open a file first');
+      vscode.window.showInformationMessage('Open Related Files: You have to open a file first.');
       return;
     }
 
     const filePath = vscode.window.activeTextEditor.document.fileName;
     const relatedFiles = new RelatedFiles(filePath, new Settings());
     await relatedFiles.openWithExtension(chosenExtension);
+  }
+
+  public static async createRelatedFile(): Promise<void> {
+    if (!vscode.window.activeTextEditor) {
+      vscode.window.showInformationMessage('Open Related Files: You have to open a file first.');
+      return;
+    }
+
+    const newExtension: string | undefined = await vscode.window.showInputBox({
+      prompt: 'Choose an extension for new related file'
+    });
+
+    if (newExtension === undefined) {
+      return;
+    }
+
+    const filePath = vscode.window.activeTextEditor.document.fileName;
+    const relatedFiles = new RelatedFiles(filePath, new Settings());
+    await relatedFiles.create(newExtension);
   }
 }
 

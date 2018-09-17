@@ -16,6 +16,10 @@ Open Related Files is a VS Code extension that allows you to quickly navigate fi
 
 Use the command `Open Related Files` or the default shortcut `cmd+shift+r`. This will show the Open Related Files QuickPick list. The list shows all extensions for related files - i.e. if you have opened `main.html` and there are `main.css` and `main.js` files in the same folder, the list will display `css` and `js`.
 
+### Create Related File
+
+Use the command `Create Related File` to create a new file next to the currently opened file. The new file will have the same name and the extension that you specified.
+
 ### Custom shortcuts
 
 **`openRelatedFiles.open`**

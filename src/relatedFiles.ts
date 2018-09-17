@@ -55,17 +55,6 @@ class RelatedFiles {
   }
 
   /**
-   * Returns the full path to a related file by a given extension.
-   */
-  public getRelatedFilePath(extension: string): string {
-    if (extension) {
-      return `${this.dir}/${this.name}.${extension}`;
-    } else {
-      return `${this.dir}/${this.name}`;
-    }
-  }
-
-  /**
    * Opens a related file in the active workspace by a given extension.
    */
   public async openWithExtension(extension: string): Promise<void> {
@@ -76,11 +65,40 @@ class RelatedFiles {
    * Opens a related file in the active workspace by a given file path.
    */
   public async open(filePath: string): Promise<void> {
-    if (fs.existsSync(filePath) && fs.lstatSync(filePath).isFile()) {
-      const document = await vscode.workspace.openTextDocument(filePath);
-      vscode.window.showTextDocument(document);
+    if (!fs.existsSync(filePath) || !fs.lstatSync(filePath).isFile()) {
+      vscode.window.showWarningMessage("Open Related Files: File doesn't exist.");
+      return;
+    }
+
+    const document = await vscode.workspace.openTextDocument(filePath);
+    vscode.window.showTextDocument(document);
+  }
+
+  /**
+   * Creates a new file next to the currently opened file with the selected extension.
+   */
+  public async create(extension: string) {
+    const newFilePath = this.getRelatedFilePath(extension);
+
+    if (fs.existsSync(newFilePath) && fs.lstatSync(newFilePath).isFile()) {
+      vscode.window.showWarningMessage(
+        'Open Related Files: Cannot create related file - it already exists.'
+      );
+      return;
+    }
+
+    fs.appendFileSync(newFilePath, '');
+    this.open(newFilePath);
+  }
+
+  /**
+   * Returns the full path to a related file by a given extension.
+   */
+  public getRelatedFilePath(extension: string): string {
+    if (extension) {
+      return `${this.dir}/${this.name}.${extension}`;
     } else {
-      vscode.window.showInformationMessage("Open Related Files: File doesn't exist.");
+      return `${this.dir}/${this.name}`;
     }
   }
 }

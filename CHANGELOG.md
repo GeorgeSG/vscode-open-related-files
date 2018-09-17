@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased] - 2018-09-15
 ### Added
+- Add "Create Related File" Command to create a new file next to the currently opened file.
 - Add `openSingleFile` option that defaults to true.
 - If there is only one related file, open it without prompting (if `openSingleFile` is true).
 
