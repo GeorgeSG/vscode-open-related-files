@@ -30,7 +30,7 @@
     "*",
     "onCommand:openRelatedFiles.open"
   ],
-  "main": "./out/extension",
+  "main": "./out/src/extension",
   "contributes": {
     "commands": [
       {

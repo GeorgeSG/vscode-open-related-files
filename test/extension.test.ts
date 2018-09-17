@@ -1,12 +1,13 @@
-import * as assert from 'assert';
+import { expect } from 'chai';
 import * as vscode from 'vscode';
 
 describe('Open Related Files', () => {
   it('is active after startup', done => {
     setTimeout(() => {
       const extension = vscode.extensions.getExtension('georgesg.open-related-files');
-      assert.ok(extension);
-      assert.equal(extension!.isActive, true);
+
+      expect(extension).to.be.ok;
+      expect(extension!.isActive).to.be.true;
       done();
     }, 1000 * 3);
   }).timeout(1000 * 10);
@@ -17,7 +18,7 @@ describe('Open Related Files', () => {
         .getCommands(true)
         .then(commands => commands.filter(command => command.startsWith('openRelatedFiles')))
         .then(commands => {
-          assert.equal(commands.length > 0, true);
+          expect(commands.length > 0).to.be.true;
         })
         .then(() => done());
     }, 1000 * 3);
