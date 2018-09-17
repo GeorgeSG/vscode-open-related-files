@@ -2,7 +2,7 @@
   "name": "open-related-files",
   "displayName": "Open Related Files",
   "description": "Quickly navigate files that are in the same folder and have the same name as the file you have currently opened.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "georgesg",
   "author": {
     "name": "Georgi Gardev",
@@ -76,7 +76,7 @@
     "postinstall": "node ./node_modules/vscode/bin/install",
     "update-version": "yarn version && git push --set-upstream origin master --follow-tags",
     "vscode:prepublish": "yarn lint && yarn test"
- },
+  },
   "devDependencies": {
     "@types/chai": "^4.1.4",
     "@types/mocha": "^2.2.42",
