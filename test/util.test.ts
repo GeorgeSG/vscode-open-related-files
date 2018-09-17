@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import * as path from 'path';
 import * as sinon from 'sinon';
 
-import * as util from '../util';
+import * as util from '../src/util';
 
 describe('util', () => {
   describe('#getOnlyName', () => {

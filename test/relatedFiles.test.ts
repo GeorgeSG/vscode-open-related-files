@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import { RelatedFiles } from '../relatedFiles';
-import { ExtensionSettings } from '../settings';
+import { RelatedFiles } from '../src/relatedFiles';
+import { ExtensionSettings } from '../src/settings';
 
 describe('RelatedFiles', () => {
   let relatedFiles: RelatedFiles;

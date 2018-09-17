@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import * as sinon from 'sinon';
 import * as vscode from 'vscode';
 
-import { ExtensionSettings } from '../settings';
+import { ExtensionSettings } from '../src/settings';
 
 describe('ExtensionSettings', () => {
   let settings: ExtensionSettings;
